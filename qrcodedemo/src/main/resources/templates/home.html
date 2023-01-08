@@ -15,31 +15,22 @@ and open the template in the editor.
 
     </head>
     <body>
-        <script src="/js/html5_qrcode_lib.js"></script>
-
-
-
-        <div class="row" style="margin-top: 50px;">
-            <div class="col-12">
-                <div style="height: 500px" id="reader"></div>
+        <div class="container">
+            <div id="camera" class="row justify-content-center" style="margin-top: 50px;display:  none;">
+                <div class="col-12 col-md-5">
+                    <div style="height: 500px;" id="reader"></div>
+                </div>
+            </div>
+            <div>
+                <button id="button" class="btn btn-danger offset-11" onclick="showScanner()">
+                    <i class="fa-solid fa-qrcode"></i>
+                </button>
             </div>
         </div>
 
 
 
-        <script type="text/javascript">
-            function onScanSuccess(qrCodeMessage) {
-                window.location.replace("https://3f85-2402-800-63eb-1f3c-b5fa-fffd-26f6-4408.ap.ngrok.io/"+qrCodeMessage);
-            }
-
-            function onScanError(errorMessage) {
-                //handle scan error
-            }
-
-            var html5QrcodeScanner = new Html5QrcodeScanner(
-                    "reader", {fps: 10, qrbox: 350});
-            html5QrcodeScanner.render(onScanSuccess, onScanError);
-
-        </script>
+        <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+        <script src="/js/main.js"></script>
     </body>
 </html>
